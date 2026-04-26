@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leaked Intel</title>
+    <link>https://leakedintel.com</link>
+    <description>Raw malware, ransomware, and threat actor intelligence.</description>
+    <atom:link href="https://leakedintel.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title><![CDATA[Ransomware Breakdown: Initial Access to Domain Compromise]]></title>
+      <link>https://leakedintel.com/articles/ransomware-initial-access-domain-compromise</link>
+      <guid>https://leakedintel.com/articles/ransomware-initial-access-domain-compromise</guid>
+      <description><![CDATA[Technical ransomware breakdown covering access vectors, privilege escalation, lateral movement, IOCs, and defensive controls.]]></description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Malware Analysis: Loader Behavior and C2 Communication]]></title>
+      <link>https://leakedintel.com/articles/malware-loader-c2-communication</link>
+      <guid>https://leakedintel.com/articles/malware-loader-c2-communication</guid>
+      <description><![CDATA[Malware analysis report covering loader execution, persistence, C2 patterns, IOCs, timelines, and detection notes.]]></description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
