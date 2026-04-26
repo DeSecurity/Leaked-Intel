@@ -6,7 +6,7 @@ import { PromoCard } from "@/components/archive/PromoCard";
 import { activeSite } from "@/content/config/site";
 import { articleUrl, getAdjacentArticles, getArticle, getPromos, getRelatedArticles } from "@/lib/content";
 
-export const Route = createFileRoute("/articles/")({
+export const Route = createFileRoute("/articles/$slug")({
   head: ({ params }) => {
     const article = getArticle(params.slug);
     const title = article?.seoTitle ?? "Article not found";

@@ -13,7 +13,7 @@ import { Route as SearchRouteImport } from './routes/search'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as AffiliateDisclosureRouteImport } from './routes/affiliate-disclosure'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ArticlesRouteImport } from './routes/articles.'
+import { Route as ArticlesSlugRouteImport } from './routes/articles.$slug'
 
 const SearchRoute = SearchRouteImport.update({
   id: '/search',
@@ -35,9 +35,9 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ArticlesRoute = ArticlesRouteImport.update({
-  id: '/articles/',
-  path: '/articles/',
+const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
+  id: '/articles/$slug',
+  path: '/articles/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -46,14 +46,14 @@ export interface FileRoutesByFullPath {
   '/affiliate-disclosure': typeof AffiliateDisclosureRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
-  '/articles/': typeof ArticlesRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/affiliate-disclosure': typeof AffiliateDisclosureRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
-  '/articles': typeof ArticlesRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,7 +61,7 @@ export interface FileRoutesById {
   '/affiliate-disclosure': typeof AffiliateDisclosureRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
-  '/articles/': typeof ArticlesRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -70,16 +70,16 @@ export interface FileRouteTypes {
     | '/affiliate-disclosure'
     | '/privacy'
     | '/search'
-    | '/articles/'
+    | '/articles/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/affiliate-disclosure' | '/privacy' | '/search' | '/articles'
+  to: '/' | '/affiliate-disclosure' | '/privacy' | '/search' | '/articles/$slug'
   id:
     | '__root__'
     | '/'
     | '/affiliate-disclosure'
     | '/privacy'
     | '/search'
-    | '/articles/'
+    | '/articles/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -87,7 +87,7 @@ export interface RootRouteChildren {
   AffiliateDisclosureRoute: typeof AffiliateDisclosureRoute
   PrivacyRoute: typeof PrivacyRoute
   SearchRoute: typeof SearchRoute
-  ArticlesRoute: typeof ArticlesRoute
+  ArticlesSlugRoute: typeof ArticlesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -120,11 +120,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/articles/': {
-      id: '/articles/'
-      path: '/articles'
-      fullPath: '/articles/'
-      preLoaderRoute: typeof ArticlesRouteImport
+    '/articles/$slug': {
+      id: '/articles/$slug'
+      path: '/articles/$slug'
+      fullPath: '/articles/$slug'
+      preLoaderRoute: typeof ArticlesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -135,7 +135,7 @@ const rootRouteChildren: RootRouteChildren = {
   AffiliateDisclosureRoute: AffiliateDisclosureRoute,
   PrivacyRoute: PrivacyRoute,
   SearchRoute: SearchRoute,
-  ArticlesRoute: ArticlesRoute,
+  ArticlesSlugRoute: ArticlesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
