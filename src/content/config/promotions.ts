@@ -1,5 +1,12 @@
+import { promoImages } from "./promo-images.generated";
+
 export type PromoPlacement = "sidebar-top" | "sidebar-middle" | "sidebar-bottom" | "inline-after-intro" | "inline-mid" | "inline-end" | "homepage";
 export type PromoType = "merch" | "amazon" | "product";
+
+export type PromoImage = {
+  src: string;
+  alt: string;
+};
 
 export type Promo = {
   id: string;
@@ -7,7 +14,10 @@ export type Promo = {
   placement: PromoPlacement[];
   title: string;
   description: string;
-  image: string;
+  image?: string;
+  imageAlt?: string;
+  imageSet?: PromoImage[];
+  imagePullUrl?: string;
   label: string;
   cta: string;
   url: string;
@@ -26,6 +36,7 @@ export const promotions: Promo[] = [
     title: "Dissent. Defy. Disobey. Tee",
     description: "Underground signal energy for operators, analysts, and privacy absolutists.",
     image: "https://advancedpersistentthreads.com/cdn/shop/files/dissent-defy-disobey-black-tee.png",
+    imageAlt: "Dissent Defy Disobey black tee from Advanced Persistent Threads",
     label: "MERCH",
     cta: "View drop",
     url: "https://advancedpersistentthreads.com/collections/all",
@@ -38,6 +49,7 @@ export const promotions: Promo[] = [
     title: "Hacker Mask Word Cloud Tee",
     description: "A clean mask graphic built from the language of intrusion, defense, and resistance.",
     image: "https://advancedpersistentthreads.com/cdn/shop/files/hacker-mask-word-cloud-tee.png",
+    imageAlt: "Hacker Mask Word Cloud tee from Advanced Persistent Threads",
     label: "MERCH",
     cta: "Open store",
     url: "https://advancedpersistentthreads.com/collections/all",
@@ -49,6 +61,7 @@ export const promotions: Promo[] = [
     title: "Red Team University Tee",
     description: "For readers who learn by breaking assumptions before adversaries break systems.",
     image: "https://advancedpersistentthreads.com/cdn/shop/files/red-team-university-tee.png",
+    imageAlt: "Red Team University tee from Advanced Persistent Threads",
     label: "MERCH",
     cta: "Shop tee",
     url: "https://advancedpersistentthreads.com/collections/all",
@@ -61,33 +74,36 @@ export const promotions: Promo[] = [
     title: "Fancy Bear Operator Hoodie",
     description: "A cold-weather layer for long nights in packet captures and incident rooms.",
     image: "https://advancedpersistentthreads.com/cdn/shop/files/fancy-bear-operator-hoodie.png",
+    imageAlt: "Fancy Bear Operator hoodie from Advanced Persistent Threads",
     label: "MERCH",
     cta: "Inspect hoodie",
     url: "https://advancedpersistentthreads.com/collections/all",
     target: { sites: ["leakedintel"] },
   },
   {
-    id: "recommended-security-keys",
+    id: "amazon-apt-operator-kit",
     type: "amazon",
-    placement: ["inline-after-intro", "sidebar-middle"],
-    title: "Recommended Security Keys",
-    description: "Hardware keys are one of the simplest account takeover defenses available.",
-    image: "/promo/security-keys.svg",
-    label: "RECOMMENDED",
-    cta: "View options",
-    url: "https://amazon.com/dp/PLACEHOLDER?tag=affiliate-placeholder",
+    placement: ["inline-after-intro", "sidebar-middle", "homepage"],
+    title: "APT Operator Kit",
+    description: "A curated Amazon list for threat research, offensive-security study, and analyst desk gear.",
+    imageSet: promoImages["amazon-apt-operator-kit"],
+    imagePullUrl: "https://www.amazon.com/gp/profile/amzn1.account.AGXGWAZEMX27NVCSYLYDAWE4KFPA/list/19CKWOIRSV7J?ccs_id=e92234d5-d3af-42fb-bf42-e1dc2daf87b3",
+    label: "AMAZON",
+    cta: "Open list",
+    url: "https://www.amazon.com/gp/profile/amzn1.account.AGXGWAZEMX27NVCSYLYDAWE4KFPA/list/19CKWOIRSV7J?ccs_id=e92234d5-d3af-42fb-bf42-e1dc2daf87b3",
     target: { sites: ["digitalcybersafety"], tags: ["accounts", "passwords", "mfa"] },
   },
   {
-    id: "best-books-on-hacking",
+    id: "amazon-red-team-reading-list",
     type: "amazon",
     placement: ["inline-end", "sidebar-bottom", "homepage"],
-    title: "Best Books on Hacking",
-    description: "A starter shelf for web exploitation, malware analysis, and defensive thinking.",
-    image: "/promo/hacking-books.svg",
-    label: "AFFILIATE",
+    title: "Red Team Reading List",
+    description: "Books pulled from the live Amazon list for exploitation, malware craft, and modern evasion.",
+    imageSet: promoImages["amazon-red-team-reading-list"],
+    imagePullUrl: "https://www.amazon.com/gp/aw/ls?&lid=OIW8YO8YJ6G&ty=wishlist&filter=unpurchased&sort=date-added&viewType=list",
+    label: "AMAZON",
     cta: "Browse list",
-    url: "https://amazon.com/dp/PLACEHOLDER?tag=affiliate-placeholder",
+    url: "https://www.amazon.com/gp/aw/ls?&lid=OIW8YO8YJ6G&ty=wishlist&filter=unpurchased&sort=date-added&viewType=list",
     target: { sites: ["leakedintel"], categories: ["Malware", "Threat Analysis"] },
   },
   {
