@@ -56,6 +56,7 @@ Promotions live in `src/content/config/promotions.ts` and support:
 - placements: sidebar top/middle/bottom, inline after intro/mid/end, homepage
 - types: merch, Amazon affiliate, future product
 - targeting: site, category, tag
+- auto-pulled Amazon wishlist imagery via `scripts/sync-promo-images.mjs` during build
 
 Markdown authors do not need to paste ad code. The layout selects matching promo blocks automatically.
 
