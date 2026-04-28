@@ -77,3 +77,5 @@ The build generates:
 ## GitHub deployment
 
 `.github/workflows/deploy.yml` builds on pushes to `main` and deploys `dist/client` to GitHub Pages. Change the workflow `VITE_SITE_KEY` for each independent site repository.
+
+For project Pages URLs under a repository path, set `GITHUB_PAGES_BASE` and `VITE_SITE_BASE_URL` in the workflow. This repo is configured for `https://desecurity.github.io/Leaked-Intel/`.
