@@ -7,9 +7,14 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 const shouldPrerender = process.env.GITHUB_ACTIONS === "true";
+const githubPagesBase = process.env.GITHUB_PAGES_BASE?.replace(/\/$/, "") || undefined;
 
 export default defineConfig({
+  cloudflare: shouldPrerender ? false : undefined,
   tanstackStart: {
+    router: {
+      basepath: githubPagesBase,
+    },
     prerender: {
       enabled: shouldPrerender,
       autoSubfolderIndex: false,

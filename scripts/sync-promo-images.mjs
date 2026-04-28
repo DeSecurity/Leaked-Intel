@@ -21,16 +21,21 @@ function decode(value) {
 }
 
 async function pullImages(url) {
-  const response = await fetch(url, {
-    headers: {
-      "accept-language": "en-US,en;q=0.9",
-      "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1",
-    },
-  });
-  if (!response.ok) return [];
-  const html = await response.text();
-  const matches = [...html.matchAll(/<img[^>]+alt="([^"]{5,180})"[^>]+src="(https:\/\/m\.media-amazon\.com\/images\/I\/[^"]+?\.(?:jpg|png))"/g)];
-  return matches.slice(0, 4).map(([, alt, src]) => ({ src: decode(src), alt: decode(alt) }));
+  try {
+    const response = await fetch(url, {
+      headers: {
+        "accept-language": "en-US,en;q=0.9",
+        "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1",
+      },
+    });
+    if (!response.ok) return [];
+    const html = await response.text();
+    const matches = [...html.matchAll(/<img[^>]+alt="([^"]{5,180})"[^>]+src="(https:\/\/m\.media-amazon\.com\/images\/I\/[^"]+?\.(?:jpg|png))"/g)];
+    return matches.slice(0, 4).map(([, alt, src]) => ({ src: decode(src), alt: decode(alt) }));
+  } catch (error) {
+    console.warn(`Skipping promo image sync for ${url}: ${error.message}`);
+    return [];
+  }
 }
 
 const imageMap = Object.fromEntries(

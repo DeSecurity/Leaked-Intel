@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://leakedintel.com</loc><lastmod>2026-04-27</lastmod></url>
-  <url><loc>https://leakedintel.com/search</loc><lastmod>2026-04-27</lastmod></url>
-  <url><loc>https://leakedintel.com/privacy</loc><lastmod>2026-04-27</lastmod></url>
-  <url><loc>https://leakedintel.com/affiliate-disclosure</loc><lastmod>2026-04-27</lastmod></url>
-  <url><loc>https://leakedintel.com/articles/ransomware-initial-access-domain-compromise</loc><lastmod>2026-04-24</lastmod></url>
-  <url><loc>https://leakedintel.com/articles/malware-loader-c2-communication</loc><lastmod>2026-04-22</lastmod></url>
+  <url><loc>https://desecurity.github.io/Leaked-Intel</loc><lastmod>2026-04-28</lastmod></url>
+  <url><loc>https://desecurity.github.io/Leaked-Intel/search</loc><lastmod>2026-04-28</lastmod></url>
+  <url><loc>https://desecurity.github.io/Leaked-Intel/privacy</loc><lastmod>2026-04-28</lastmod></url>
+  <url><loc>https://desecurity.github.io/Leaked-Intel/affiliate-disclosure</loc><lastmod>2026-04-28</lastmod></url>
+  <url><loc>https://desecurity.github.io/Leaked-Intel/articles/ransomware-initial-access-domain-compromise</loc><lastmod>2026-04-24</lastmod></url>
+  <url><loc>https://desecurity.github.io/Leaked-Intel/articles/malware-loader-c2-communication</loc><lastmod>2026-04-22</lastmod></url>
 </urlset>
