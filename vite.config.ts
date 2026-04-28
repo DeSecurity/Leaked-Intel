@@ -6,13 +6,16 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const shouldPrerender = process.env.GITHUB_ACTIONS === "true";
+
 export default defineConfig({
   tanstackStart: {
     prerender: {
-      enabled: true,
-      autoSubfolderIndex: true,
+      enabled: shouldPrerender,
+      autoSubfolderIndex: false,
       autoStaticPathsDiscovery: true,
       crawlLinks: true,
+      failOnError: false,
     },
   },
   vite: {
