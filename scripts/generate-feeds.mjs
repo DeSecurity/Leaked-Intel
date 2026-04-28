@@ -10,6 +10,7 @@ const sites = {
   leakedintel: { name: "Leaked Intel", base: "https://leakedintel.com", description: "Raw malware, ransomware, and threat actor intelligence." },
 };
 const site = sites[siteKey] || sites.leakedintel;
+site.base = (process.env.VITE_SITE_BASE_URL || site.base).replace(/\/$/, "");
 
 function parseList(value) {
   return value.replace(/^\[/, "").replace(/\]$/, "").split(",").map((item) => item.trim().replace(/^['\"]|['\"]$/g, "")).filter(Boolean);
