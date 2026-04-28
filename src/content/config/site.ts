@@ -32,7 +32,12 @@ export const siteProfiles: Record<SiteKey, SiteProfile> = {
 };
 
 export const activeSiteKey = (import.meta.env.VITE_SITE_KEY as SiteKey | undefined) ?? "leakedintel";
-export const activeSite = siteProfiles[activeSiteKey] ?? siteProfiles.leakedintel;
+const selectedSite = siteProfiles[activeSiteKey] ?? siteProfiles.leakedintel;
+const configuredBaseUrl = import.meta.env.VITE_SITE_BASE_URL?.replace(/\/$/, "");
+export const activeSite = {
+  ...selectedSite,
+  canonicalBase: configuredBaseUrl ?? selectedSite.canonicalBase,
+};
 
 export const navItems = [
   { label: "Archive", to: "/" },
