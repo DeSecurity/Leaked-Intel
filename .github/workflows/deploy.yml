@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VITE_SITE_KEY: leakedintel
+      VITE_SITE_BASE_URL: https://desecurity.github.io/Leaked-Intel
+      GITHUB_PAGES_BASE: /Leaked-Intel/
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
